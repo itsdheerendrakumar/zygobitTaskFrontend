@@ -7,7 +7,7 @@ function Login() {
   const router = useRouter();
   const [user, setUser] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
-  const hanldeSubmit = async (e) => {
+  const hanldeSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       try {
           setLoading(true)

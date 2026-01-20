@@ -2,6 +2,7 @@
 "use client"
 
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function RootLayout({
   children,
@@ -9,8 +10,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
     const router = useRouter()
-    if(!!!localStorage.getItem("authToken"))
+    useEffect(() => {
+      if(!!!localStorage.getItem("authToken"))
         router.push("/login")
+    }, [])
   return (
     <html lang="en">
       <div

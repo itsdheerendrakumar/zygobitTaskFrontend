@@ -6,7 +6,7 @@ import { useState } from "react";
 function Signup() {
   const [user, setUser] = useState({ name: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
-  const hanldeSubmit = async (e) => {
+  const hanldeSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
         setLoading(true)
