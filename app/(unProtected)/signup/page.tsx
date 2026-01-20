@@ -1,17 +1,20 @@
 "use client";
 
 import { register } from "@/api/api";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 function Signup() {
   const [user, setUser] = useState({ name: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const hanldeSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
         setLoading(true)
         const res = await register(user);
-        setUser(pre => ({ ...pre, name: "", email: "", password: "" }))
+        setUser(pre => ({ ...pre, name: "", email: "", password: "" }));
+        router.push("/login");
         setLoading(false)
     } catch (error) {
         setLoading(false)
